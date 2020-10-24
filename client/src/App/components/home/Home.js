@@ -6,15 +6,9 @@ import OutputCall from "../output/OutputCall";
 import Header from "../header/Header";
 
 
-function App() {
+function Home() {
 
-  const [blackSInputs, setInputs] = useState({
-    stockPrice: null,
-    strikePrice: null,
-    dayToExpiration: null,
-    volatility: null,
-    riskFreeReturn: null
-  });
+  const [blackSInputs, setInputs] = useState({});
 
   const [blackSOutput, setOutput] = useState({});
 
@@ -58,4 +52,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

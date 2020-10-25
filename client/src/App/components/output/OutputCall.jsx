@@ -1,7 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Output.css';
 
 function OutputCall(props) {
+
+  console.log(props.blackSObject.callPrice)
 
   return(
 
@@ -9,13 +11,13 @@ function OutputCall(props) {
       <div className="card output">
           <div className="card-block">
               <h2 className="card-title">Call</h2>
-              <p className="card-text">Price: {props.blackSOutput.callPrice}</p>
-              <p className="card-text">Delta: {props.blackSOutput.callDelta}</p>
-              <p className="card-text">Gamma: {props.blackSOutput.callGamma}</p>
-              <p className="card-text">Vega: {props.blackSOutput.callVega}</p>
-              <p className="card-text">Theta: {props.blackSOutput.callTheta}</p>
-              <p className="card-text">Rho: {props.blackSOutput.callRho}</p>
-              <p className="card-text">Omega: {props.blackSOutput.callOmega}</p>
+              <p className="card-text">Price: {props.blackSObject.callPrice}</p>
+              <p className="card-text">Delta: {props.blackSObject.callDelta}</p>
+              <p className="card-text">Gamma: {props.blackSObject.callGamma}</p>
+              <p className="card-text">Vega: {props.blackSObject.callVega}</p>
+              <p className="card-text">Theta: {props.blackSObject.callTheta}</p>
+              <p className="card-text">Rho: {props.blackSObject.callRho}</p>
+              <p className="card-text">Omega: {props.blackSObject.callOmega}</p>
           </div>
       </div>
     </div>

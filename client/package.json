@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "chart.js": "^2.9.4",
     "react": "next",
     "react-dom": "next",
     "react-router-dom": "^4.3.1",

@@ -4,22 +4,34 @@ import Input from "../input/Input";
 import OutputPut from "../output/OutputPut";
 import OutputCall from "../output/OutputCall";
 import Header from "../header/Header";
+import Graph from "../graph/Graph";
 
 
 function Home() {
 
   const [blackSInputs, setInputs] = useState({});
 
-  const [blackSOutput, setOutput] = useState({});
+  const [blackSObject, setOutput] = useState({});
+  const [graphData, setGraphData] = useState([]);
 
-  async function fetchData() {
-    const res = await fetch("/blackS");
+  console.log(blackSObject);
+  console.log(graphData);
+
+  async function fetchBlackSData() {
+    const res = await fetch("/blackSValues");
     const data = await res.json();
     setOutput(data);
   }
 
+  async function fetchGraphData() {
+    const res = await fetch("/graphData");
+    const graphData = await res.json();
+    setGraphData(graphData);
+  }
+
   useEffect(() => {
-    fetchData();
+    fetchBlackSData();
+    fetchGraphData();
   }, []);
 
   function handleSubmit(input) {
@@ -30,9 +42,11 @@ function Home() {
       body: JSON.stringify(input)
     };
     fetch('/blackS', req)
-    fetchData();
-    // .then(res => res.json())
+    fetchBlackSData();
+    fetchGraphData();
   }
+
+
 
   return (
     <div className="App">
@@ -42,10 +56,15 @@ function Home() {
           <Input handleSubmit={handleSubmit} />
         </div>
         <div class="col-lg-4">
-          <OutputCall blackSOutput={blackSOutput} />
+          <OutputCall blackSObject={blackSObject} />
         </div>
         <div class="col-lg-4">
-          <OutputPut blackSOutput={blackSOutput}/>
+          <OutputPut blackSObject={blackSObject}/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 graph">
+          <Graph graphData={graphData}/>
         </div>
       </div>
     </div>

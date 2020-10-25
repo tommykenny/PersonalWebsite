@@ -20,8 +20,14 @@ module.exports = function(time, stockPrice, strikePrice, riskFreeReturn, stdDev)
   var riskFreeReturn = parseFloat(riskFreeReturn);
   var stdDev = parseFloat(stdDev);
 
+  // var xmin = 0;
+  // var xmax = Math.max(stockPrice, strikePrice);
+  // xmax = xmax * 2;
+  // console.log(xmax);
+  // xmax = Math.ceil((xmax/10)) * 10;
+  // console.log(xmax)
 
-  console.log(time, stockPrice, strikePrice, riskFreeReturn, stdDev);
+  // console.log(time, stockPrice, strikePrice, riskFreeReturn, stdDev);
 
   //Calculated values
   var d1 = ((Math.log(stockPrice/strikePrice))+(riskFreeReturn+(.5*(Math.pow(stdDev,2))))*time)/(stdDev*(Math.pow(time,.5)));
@@ -73,48 +79,3 @@ module.exports = function(time, stockPrice, strikePrice, riskFreeReturn, stdDev)
 
   return blackSObj;
 }
-
-//test Theta
-
-// function _stdNormDensity(x)
-// {
-//   return Math.pow(Math.E, -1 * Math.pow(x, 2) / 2) / Math.sqrt(2 * Math.PI);
-// }
-//
-// function _doubleFactorial(n)
-// {
-//   var val = 1;
-//   for(var i = n; i > 1; i-=2)
-//   {
-//     val *= i;
-//   }
-//   return val;
-// }
-//
-// function stdNormCDF(x)
-// {
-//   var probability = 0;
-//   // avoid divergence in the series which happens around +/-8 when summing the
-//   // first 100 terms
-//   if(x >= 8)
-//   {
-//     probability = 1;
-//   }
-//   else if(x <= -8)
-//   {
-//     probability = 0;
-//   }
-//   else
-//   {
-//     for(var i = 0; i < 100; i++)
-//     {
-//       probability += (Math.pow(x, 2*i+1)/_doubleFactorial(2*i+1));
-//     }
-//     probability *= Math.pow(Math.E, -0.5*Math.pow(x, 2));
-//     probability /= Math.sqrt(2*Math.PI);
-//     probability += 0.5;
-//   }
-//   return probability;
-// }
-
-// var callTheta = -1 * stdDev * stockPrice * _stdNormDensity(w) / (2 * Math.sqrt(time)) - strikePrice * riskFreeReturn * Math.pow(Math.E, -1 * riskFreeReturn * time) * stdNormCDF(w - stdDev * Math.sqrt(time));

@@ -10,23 +10,11 @@ function Graph(props) {
   //[0, 0, 0, 0, 0.0002, 0.046, 0.866, 4.5216, 11.7043, 20.8915, 30.7261]
 
 
-  // const [graphData, setGraphData] = useState({});
-
-  // async function fetchData() {
-  //   const res = await fetch("/blackSGraph");
-  //   const data = await res.json();
-  //   setGraphData(data);
-  // }
-  //
-  // useEffect(() => {
-  //   fetchGraphData();
-  // }, []);
-
-
   var ctx = "line-chart";
   var lineChart = new Chart(ctx, {
     type: 'line',
     fill: false,
+    maintainAspectRation: false,
     data: {
       labels: props.graphData.xLabels,
       datasets: [
@@ -62,7 +50,11 @@ function Graph(props) {
     }
   });
 
-  return <canvas id="line-chart" width="10" height="10"></canvas>
+  return <canvas id="line-chart" width="100px" height="100px"></canvas>
+
+
+
+
 }
 
 export default Graph;

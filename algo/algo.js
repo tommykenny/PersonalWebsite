@@ -56,9 +56,17 @@ module.exports = function(time, stockPrice, strikePrice, riskFreeReturn, stdDev)
   var putTheta = (-(stockPrice * normal.pdf(d1) * stdDev / (2 * Math.pow(time,.5))) + (riskFreeReturn * strikePrice * Math.exp(-riskFreeReturn * time) * cdfNormal(-d2, 0, 1)))/365;
   var putRho = .01 * (-time * strikePrice * Math.exp(-riskFreeReturn * time) * cdfNormal(-d2, 0, 1));
 
+  if (callPrice === 0) {
+    callPrice = .01;
+  }
+  if (putPrice === 0) {
+    putPrice = .01;
+  }
+
   //Leverage
   var callOmega = normD2 * (stockPrice / callPrice);
   var putOmega = (normD2 - 1) * (stockPrice / putPrice);
+
 
   var blackSObj = {
     callPrice: callPrice.toFixed(4),

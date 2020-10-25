@@ -5,6 +5,7 @@ import OutputPut from "../output/OutputPut";
 import OutputCall from "../output/OutputCall";
 import Header from "../header/Header";
 import Graph from "../graph/Graph";
+import GraphInput from "../graphInput/GraphInput";
 
 
 function Home() {

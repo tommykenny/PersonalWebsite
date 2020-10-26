@@ -36,9 +36,11 @@ app.get('/graphData', (req,res) => {
 
 app.post('/blackS', (req, res) => {
   console.log("push Succesful");
+  var xAxis = "stockPrice";
+  var yAxis = "callPrice";
   inputs = req.body
   blackSOutput = blackS(inputs.dayToExpiration/365, inputs.stockPrice, inputs.strikePrice, inputs.riskFreeReturn, inputs.volatility);
-  graphData = graph(inputs.dayToExpiration/365, inputs.stockPrice, inputs.strikePrice, inputs.riskFreeReturn, inputs.volatility);
+  graphData = graph(inputs.dayToExpiration/365, inputs.stockPrice, inputs.strikePrice, inputs.riskFreeReturn, inputs.volatility, xAxis, yAxis);
 
   res.redirect('/blackSValues');
 });

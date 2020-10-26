@@ -51,21 +51,31 @@ function Home() {
 
   return (
     <div className="App">
-      <Header />
-      <div class="row">
-        <div class="col-lg-4">
-          <Input handleSubmit={handleSubmit} />
-        </div>
-        <div class="col-lg-4">
-          <OutputCall blackSObject={blackSObject} />
-        </div>
-        <div class="col-lg-4">
-          <OutputPut blackSObject={blackSObject}/>
-        </div>
+      <div class="App-header" >
+        <Header />
       </div>
       <div class="row">
-        <div class="col-lg-6 graph">
-          <Graph graphData={graphData}/>
+        <div class="col-lg-4">
+          <div class="row">
+            <div class="col-lg-12">
+              <Input handleSubmit={handleSubmit} />
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-lg-6">
+              <OutputCall blackSObject={blackSObject} />
+            </div>
+            <div class="col-lg-6">
+              <OutputPut blackSObject={blackSObject}/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12 graph">
+              <Graph graphData={graphData}/>
+            </div>
+          </div>
         </div>
       </div>
     </div>

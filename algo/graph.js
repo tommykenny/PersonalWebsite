@@ -2,13 +2,19 @@ const blackS = require('./algo.js');
 const Chart = require('chart.js');
 const mathjs = require('mathjs');
 
-module.exports = function (time, stockPrice, strikePrice, riskFreeReturn, stdDev) {
+module.exports = function (time, stockPrice, strikePrice, riskFreeReturn, stdDev, xAxis, yAxis) {
 
   var time = parseFloat(time);
   var stockPrice = parseFloat(stockPrice);
   var strikePrice = parseFloat(strikePrice);
   var riskFreeReturn = parseFloat(riskFreeReturn);
   var stdDev = parseFloat(stdDev);
+
+  console.log(xAxis);
+  console.log(yAxis);
+
+  var graphType = "blackSObject." + yAxis;
+  console.log(graphType);
 
   var xMin = 0;
   var xMax = Math.max(stockPrice, strikePrice);
@@ -50,7 +56,7 @@ module.exports = function (time, stockPrice, strikePrice, riskFreeReturn, stdDev
   for (var i = xMin; i < xMax+interval; i = i + interval) {
     xLabels.push(i);
     blackSObject = blackS(time, i, strikePrice, riskFreeReturn, stdDev);
-    yData.push(Math.max(blackSObject.callPrice, 0));
+    yData.push(Math.max(eval(graphType), 0));
   }
 
   console.log(xLabels);

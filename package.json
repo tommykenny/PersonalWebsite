@@ -11,6 +11,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "@popperjs/core": "^2.5.3",
     "body-parser": "^1.19.0",
     "chart.js": "^2.9.4",
     "distributions": "^2.1.0",

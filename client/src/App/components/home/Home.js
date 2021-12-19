@@ -6,6 +6,9 @@ import OutputCall from "../output/OutputCall";
 import Header from "../header/Header";
 import Graph from "../graph/Graph";
 import GraphInput from "../graphInput/GraphInput";
+import DropDown from "../dropDown/DropDown";
+import { createPopper } from '@popperjs/core';
+
 
 
 function Home() {
@@ -42,7 +45,7 @@ function Home() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(input)
     };
-    fetch('/blackS', req)
+    fetch('/blackS', req);
     fetchBlackSData();
     fetchGraphData();
   }
@@ -59,6 +62,11 @@ function Home() {
           <div class="row">
             <div class="col-lg-12">
               <Input handleSubmit={handleSubmit} />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <DropDown />
             </div>
           </div>
         </div>

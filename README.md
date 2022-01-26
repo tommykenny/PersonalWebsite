@@ -1,2 +1,2 @@
-# PersonalWebsite
-This is my personal Website
+# Black Scholes Calculator
+This is a Black Scholes Calculator

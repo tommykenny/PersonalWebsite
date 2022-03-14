@@ -14,6 +14,7 @@ module.exports = function (time, stockPrice, strikePrice, riskFreeReturn, stdDev
   console.log(yAxis);
 
   var graphType = "blackSObject." + yAxis;
+  console.log("hi")
   console.log(graphType);
 
   var xMin = 0;

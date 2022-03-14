@@ -7,7 +7,7 @@ import Header from "../header/Header";
 import Graph from "../graph/Graph";
 import GraphInput from "../graphInput/GraphInput";
 import DropDown from "../dropDown/DropDown";
-import { createPopper } from '@popperjs/core';
+import PrimeDropDown from '../primeDropDown/primeDropDown'
 
 
 
@@ -58,19 +58,50 @@ function Home() {
         <Header />
       </div>
       <div class="row">
-        <div class="col-lg-4">
-          <div class="row">
+        <div class="col-lg-5">
+          <div class="row inputComponent">
             <div class="col-lg-12">
               <Input handleSubmit={handleSubmit} />
             </div>
           </div>
           <div class="row">
             <div class="col-lg-12">
-              <DropDown />
+              <div class="row">
+                <div class="col-lg-4">
+                  <PrimeDropDown placeholder={'Call'} filterHeader={"Option Type"} filterOptions={[
+            { name: 'Call', code: 'call' },
+            { name: 'Put', code: 'put' }]} />
+                </div>
+                <div class="col-lg-4">
+                <PrimeDropDown placeholder={'Stock Price'} filterHeader={"X-axis variable"} filterOptions={[
+            { name: 'Stock Price', code: 'stockPrice' },
+            { name: 'Strike Price', code: 'strikePrice' },
+            { name: 'Option Price', code: 'optionPrice' },
+            { name: 'Delta', code: 'Delta' },
+            { name: 'Gamma', code: 'Gamma' },
+            { name: 'Vega', code: 'Vega' },
+            { name: 'Theta', code: 'Theta' },
+            { name: 'Rho', code: 'Rho' },
+            { name: 'Omega', code: 'Omega' }]} />
+                </div>
+                <div class="col-lg-4">
+                <PrimeDropDown placeholder={"Option Price"} filterHeader={"Y-axis variable"} filterOptions={[
+            { name: 'Stock Price', code: 'stockPrice' },
+            { name: 'Strike Price', code: 'strikePrice' },
+            { name: 'Option Price', code: 'optionPrice' },
+            { name: 'Delta', code: 'Delta' },
+            { name: 'Gamma', code: 'Gamma' },
+            { name: 'Vega', code: 'Vega' },
+            { name: 'Theta', code: 'Theta' },
+            { name: 'Rho', code: 'Rho' },
+            { name: 'Omega', code: 'Omega' }]} />
+                </div>
+              </div>
+              {/* <DropDown /> */}
             </div>
           </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-7">
           <div class="row">
             <div class="col-lg-6">
               <OutputCall blackSObject={blackSObject} />

@@ -1,5 +1,4 @@
 import React, { useState} from 'react';
-import { createPopper } from '@popperjs/core';
 
 function DropDown({title, items, multiSelect = false}) {
   const [open, setOpen] = useState(false);

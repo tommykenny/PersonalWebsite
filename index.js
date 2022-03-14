@@ -36,6 +36,7 @@ app.get('/graphData', (req,res) => {
 
 app.post('/blackS', (req, res) => {
   console.log("push Succesful");
+  console.log(req)
   var xAxis = "stockPrice";
   var yAxis = "callPrice";
   inputs = req.body
